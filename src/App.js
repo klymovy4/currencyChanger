@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
 import { Cocktails } from './pages/Cocktails';
 import { Profile } from './pages/Profile';
+import {Context} from '../src/context'
 
 
 function App() {
@@ -13,39 +14,46 @@ function App() {
     { id: Date.now() + 1, name: 'Paul' },
   ])
   const [value, setValue] = useState('')
-  const changeHandlerValue = e => {
+  const changeValue = e => {
     setValue(e.target.value)
   }
-  const onClickHandler = (e) => {
+  const addItem = (e) => {
     e.preventDefault()
-    setData([
-      ...data, { id: Date.now(), name: value }
+     if(value){
+       setData([
+         ...data, { id: Date.now(), name: value }
 
-    ])
-    setValue('')
+       ])
+       setValue('')
+     }
   }
-  // console.log('1', data);
   return (
-    <BrowserRouter>
-      <Navbar />
-      {/*<div className='container pt-4'>*/}
-        <Switch>
-          <Route path='/' exact>
-            <Home data={data}
-              value={value}
-              onClickHAndler={onClickHandler}
-              changeHandlerValue={changeHandlerValue}
-            />
-          </Route>
+      <Context.Provider value={{
+        changeValue,
+        addItem,
+        data,
+        value
+        }}
+      >
+        <BrowserRouter>
 
-          <Route path='/cocktails' component={Cocktails} />
-          <Route path='/profile/:name' component={Profile} />
-        </Switch>
+          <Navbar />
+          {/*<div className='container pt-4'>*/}
+            <Switch>
+              <Route path='/' exact>
+                <Home data={data}
+                  value={value}
+                  onClickHAndler={addItem}
+                  changeHandlerValue={changeValue}
+                />
+              </Route>
 
+              <Route path='/cocktails' component={Cocktails} />
+              <Route path='/profile/:name' component={Profile} />
+            </Switch>
 
-
-      {/*</div>*/}
-    </BrowserRouter>
+        </BrowserRouter>
+      </Context.Provider>
   );
 }
 
