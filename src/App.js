@@ -15,7 +15,7 @@ function App() {
               </Route>
 
               <Route path='/cocktails' component={Cocktails} />
-              <Route path='/profile/:name' component={Profile} />
+              <Route path='/currency' component={Profile} />
             </Switch>
 
         </BrowserRouter>

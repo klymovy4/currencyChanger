@@ -1,0 +1,89 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-y: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.todo-ul {
+  margin: 0;
+  padding: 0;
+  .todo-li {
+    list-style: none;
+    margin: .2rem;
+    border-bottom: 1px solid black;
+    &.completed {
+      text-decoration: line-through;
+    }
+    label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+    }
+  }
+}
+.link {
+  display: inline-block;
+  text-align: center;
+  outline: 1px solid red;
+  &:hover {
+    font-weight: 800;
+  }
+}
+.about-block {
+  width: 100%;
+  background: aliceblue;
+  height: 100vh;
+
+  .form-block {
+    text-align: center;
+    padding: 2rem;
+  }
+  .output-block {
+    padding: 2rem;
+    text-align: center;
+  }
+}
+.os-enter {
+  opacity: 0;
+  transform: translateX(1000px);
+  transition-timing-function: ease;
+}
+.os-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity, transform 1s;
+}
+.os-enter-done {
+  opacity: 1;
+}
+.os-exit {
+  opacity: 1;
+  transform: translateX(0);
+  transition-timing-function: ease-out;
+}
+.os-exit-active {
+  transform: translateX(1000px);
+  transition-timing-function: ease-out;
+  transition: opacity, transform 1s;
+  opacity: .5;
+}
+.os-exit-done {
+  opacity: 0;
+
+}
+.currency-main-block{
+  background: aliceblue;
+  height: 100vh;
+}
