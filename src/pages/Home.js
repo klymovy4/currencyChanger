@@ -6,7 +6,7 @@ import reducer from "../reducer";
 
 export const Home = () => {
     const [updatedWidth, setUpdatedWidth] = useState(null)
-    const [state, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('todos')))
+    const [state, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('todos')) || [])
     const [value, setValue] =useState('')
     const link = useRef()
 
@@ -39,10 +39,11 @@ export const Home = () => {
            dispatch
         }}
         >
-            <div className='container w-50  text-center'>
+            <div className='container home-page  text-center '>
                 <h1>Home Page</h1>
                 <NavLink className='link' ref={link} style={{ width: updatedWidth }} to='/'>Link </NavLink><hr />
                 <input type='text'
+                    class="form-control"
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                     onKeyPress={addList}
