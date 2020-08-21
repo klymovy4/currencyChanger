@@ -7,14 +7,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-y: hidden;
+  //overflow-y: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.navbar {
+  height: 8vh;
+}
+.home-page {
+  max-width: 600px;
+}
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 0 12px;
+  label {
+    margin: 0;
+  }
+  input {
+    margin-right: 5px;
+  }
+}
 .todo-ul {
   margin: 0;
   padding: 0;
@@ -44,7 +61,7 @@ code {
 .about-block {
   width: 100%;
   background: aliceblue;
-  height: 100vh;
+  height: 92vh;
 
   .form-block {
     text-align: center;
@@ -85,5 +102,5 @@ code {
 }
 .currency-main-block{
   background: aliceblue;
-  height: 100vh;
+  height: 92vh;
 }
