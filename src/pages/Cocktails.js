@@ -22,6 +22,7 @@ export const Cocktails = () => {
                 setCocktailTransition(true)
                 return cocktail
             })
+            
     }, [])
     useEffect(()=>{
         localStorage.setItem('drinks', JSON.stringify(chooseCocktail))
