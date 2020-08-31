@@ -4,6 +4,7 @@ import cn from 'classnames/bind'
 
 export const Registration = () => {
     const [log, setLog] = useState(false)
+    const [logUp, setLogUp] = useState('')
 
     const styleUp = ['signup']
     const styleIn = ['login']
@@ -16,13 +17,14 @@ export const Registration = () => {
     const changeLogin = () => {
         setLog(!log)
     }
+    console.log(logUp)
     return (
         <div className='register-form'>
             <div className="form-structor">
                 <div className={cn(styleUp, {[styleUp]: log})}>
                     <h2 className="form-title" onClick={changeLogin} id="signup"><span>or</span>Sign up</h2>
                     <div className="form-holder">
-                        <input type="text" className="input" placeholder="Name" />
+                        <input type="text" className="input" placeholder="Name1" onChange={e => setLogUp(e.target.value)}/>
                         <input type="email" className="input" placeholder="Email" />
                         <input type="password" className="input" placeholder="Password" />
                     </div>
